@@ -28,6 +28,9 @@ gem 'spring',        group: :development
 
 gem 'requirejs-rails', git: 'git://github.com/jwhitley/requirejs-rails.git'
 
+gem 'omniauth-steam'
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
