@@ -1,0 +1,15 @@
+  <% if session[:current_user] %>
+
+  Name: <%= session[:current_user][:nickname]%> <br>
+  Currency: <%= session[:current_user][:currency]%> <br>
+  id: <%= session[:current_user][:id]%> <br>
+  <br>
+  <%= link_to 'sign out', signout_path%>
+
+  <% else %>
+
+  <%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), 
+      '/auth/steam' %>
+
+  <% end %>
+
