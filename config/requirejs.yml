@@ -1,7 +1,6 @@
 paths: 
-  jquery: 'bower/jquery-1.9.1/jquery.min'
+  jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min'
   backbone: 'bower/backbone/backbone-min'
-  underscore: 'bower/underscore/underscore-min'
   page: 'views/page'
 
 
@@ -9,14 +8,12 @@ shim:
   jquery: 
     exports: '$'
   
-  underscore: 
-    exports: '_'
-  
   backbone: 
-    deps: ['underscore', 'jquery']
+    deps: ['jquery']
     exports: 'Backbone'
   
   page: 
     deps: [
+      'views/gameList'
     ]
     exports: 'page'
