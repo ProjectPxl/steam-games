@@ -1,15 +1,18 @@
 define([
   'jquery',
+  'underscore',
   'backbone'
 ],
-function($, Backbone) {
-  var GameList = Backbone.View.extend({
+function($, _, Backbone) {
+
+  var GameListView = Backbone.View.extend({
+    
     initialize: function(){
-      alert('ji')
     }
+
   });
 
 
-  return GameList;
+  return GameListView;
 
 });

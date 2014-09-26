@@ -9,7 +9,7 @@ class SteamController < ApplicationController
   def create
     # auth = request.env['omniauth.auth']
     auth = request.env['omniauth.auth']
-    user = SteamUser.find_by_provider_and_uid(auth.provider, auth.uid) || SteamUser.create_new_user(auth)
+    user = SteamUser.find_by_nickname( auth.info['nickname'] ) || SteamUser.create_new_user(auth)
     session[:current_user] = { :nickname => auth.info['nickname'],
                                :image => auth.info['image'],
                                :uid => auth.uid,
