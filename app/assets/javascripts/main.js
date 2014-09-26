@@ -2,11 +2,9 @@
   Bootstrap the application
 */
 
-console.log('hi')
-require(['jquery', 'backbone', 'page'], function($, Backbone, PageView) {
+//
+require(['jquery', 'underscore', 'backbone', 'page'], function($, _, Backbone, PageView) {
 
   var page = new PageView({el: $('body')});
 
 });
-
-console.log('yo')

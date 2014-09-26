@@ -1,8 +1,9 @@
 define([
   'jquery',
+  'underscore',
   'backbone'
 ],
-function($, Backbone) {
+function($, _, Backbone) {
 
   var $doc = $(document),
     $win = $(window);
