@@ -7,7 +7,6 @@ class SteamController < ApplicationController
   end
 
   def create
-    # auth = request.env['omniauth.auth']
     auth = request.env['omniauth.auth']
     user = SteamUser.find_by_nickname( auth.info['nickname'] ) || SteamUser.create_new_user(auth)
     session[:current_user] = { :nickname => auth.info['nickname'],
@@ -20,7 +19,9 @@ class SteamController < ApplicationController
   end
 
   def show
-    
+    @user = SteamUser.find( session[:current_user][:id] )
+    @giveaways = @user.giveaways
+    # @new_giveaway = @user.giveaways.build
   end
 
   def destroy
