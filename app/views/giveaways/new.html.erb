@@ -1,0 +1,9 @@
+<h2>Create giveaway</h2>
+<%= form_for(@new_giveaway) do |f| %>
+  <div class="field">
+    <%= f.text_field :game_name, placeholder: "name" %>
+    <%= f.text_field :min_participants, placeholder: "min participants" %>
+  </div>
+  <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+<% end %>
+

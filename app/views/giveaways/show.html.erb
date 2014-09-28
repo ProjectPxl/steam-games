@@ -1,0 +1,3 @@
+<h2><%= @show_giveaway.game_name %></h2>
+
+<%= button_to "Participate", {:controller => :giveaways, :action => :new_participant}, {:method => :put} %>

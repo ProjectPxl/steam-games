@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921232025) do
+ActiveRecord::Schema.define(version: 20140928013625) do
+
+  create_table "giveaways", force: true do |t|
+    t.integer  "game_id"
+    t.string   "game_name"
+    t.string   "participants"
+    t.integer  "min_participants"
+    t.integer  "steam_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "steam_users", force: true do |t|
     t.string   "provider"

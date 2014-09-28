@@ -1,4 +1,5 @@
 class SteamUser < ActiveRecord::Base
+  has_many :giveaways, dependent: :destroy
 
   def self.create_new_user(auth)
     create! do |user|
