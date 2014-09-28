@@ -1,0 +1,5 @@
+<ul>
+  <% @all_giveaways.each do |giveaway| %>
+    <li><%= link_to giveaway.game_name, giveaway %></li>
+  <%end%>
+</ul>

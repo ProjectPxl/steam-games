@@ -1,8 +1,24 @@
-  Name: <%= session[:current_user][:nickname]%> <br>
-  Currency: <%= session[:current_user][:currency]%> <br>
-  id: <%= session[:current_user][:id]%> <br>
+  <h2>User info</h2>
+  Name: <%= @user[:nickname]%> <br>
+  Currency: <%= @user[:currency]%> <br>
+  id: <%= @user[:id]%> <br>
   <br>
-  <%= link_to 'sign out', signout_path%>
 
 
-<div class="games-list" data-controller="gameList"></div>
+<!-- <div class="games-list" data-controller="gameList"></div> -->
+<br>
+<%= link_to 'Create giveaway', new_giveaway_path %>
+
+  <% if @user.giveaways.any? %>
+    <h3>Giveaways (<%= @user.giveaways.count %>)</h3>
+    <ol class="giveaways">
+    <%= render @giveaways %>
+    </ol>
+  <% else %>
+    You don't have any giveaways. <br>
+    <%= link_to 'Create A Goveaway', ''%>
+  <% end %>
+
+
+<br>
+<%= link_to 'sign out', signout_path %>
