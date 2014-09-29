@@ -10,6 +10,13 @@ class GiveawaysController < ApplicationController
 
   def new
     @new_giveaway = Giveaway.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: get_game_list }
+      # format.json  { render :json => { :gane_list => get_game_list, 
+      #                                  :game_details => get_game_getails(20) }}
+    end
   end
 
   def create
@@ -34,11 +41,13 @@ class GiveawaysController < ApplicationController
     # @giveaway_participants.min_participants = 1
     # @current_giveaway.participants = nil
 
-    if no_participants
-      @current_giveaway.participants = session[:current_user][:id].to_s
-    else
-      @current_giveaway.participants += ',' + session[:current_user][:id].to_s
-    end
+
+    #Save user id in participants field.
+    # if no_participants
+    #   @current_giveaway.participants = session[:current_user][:id].to_s
+    # else
+    #   @current_giveaway.participants += ',' + session[:current_user][:id].to_s
+    # end
 
     if @current_giveaway.save
       flash[:success] = "You took part"
@@ -51,7 +60,7 @@ class GiveawaysController < ApplicationController
       @winner = perform_raffle(@current_giveaway.participants)
     end
 
-    #Fetchings user id's currently in giveaway
+    #Fetching user id's currently in giveaway
     # @participants = @giveaway_participants.participants.split(",").map { |user_id| user_id.to_i }
     # @participants.each do |id| 
     #   if id == session[:current_user][:id]

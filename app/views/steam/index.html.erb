@@ -2,15 +2,4 @@ All:
 <% @all_users.each do |user| %>
   <%= user.nickname %> <br>
 <%end%>
--------------------- <br>
-<% if logged_in? %>
-<%= link_to session[:current_user][:nickname], "steam/#{session[:current_user][:id]}" %> <br>
-<%= link_to 'sign out', signout_path%>
-
-<% else %>
-
-<%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), 
-    '/auth/steam' %>
-
-<% end %>
 
