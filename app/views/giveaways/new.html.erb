@@ -1,4 +1,7 @@
 <h2>Create giveaway</h2>
+
+<div class="games-list" data-controller="gameList">game list</div>
+
 <%= form_for(@new_giveaway) do |f| %>
   <div class="field">
     <%= f.text_field :game_name, placeholder: "name" %>

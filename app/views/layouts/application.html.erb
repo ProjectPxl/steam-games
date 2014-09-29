@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<%= link_to "Profile", "/steam/#{current_user[:id]}" %>
+<% if logged_in? %>
+<%= link_to session[:current_user][:nickname], "/steam/#{session[:current_user][:id]}" %> <br>
+<%= link_to 'sign out', signout_path%>
+
+<% else %>
+
+<%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), 
+    '/auth/steam' %>
+
+<% end %>
+<br>
 
 =======
   <% flash.each do |key, value| %>
